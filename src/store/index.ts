@@ -1,14 +1,13 @@
 import { createStore } from 'vuex'
+import { RootState } from '@/store/types';
 
-export default createStore({
+import { language } from './language';
+
+export default createStore<RootState>({
 	state: {
-	},
-	getters: {
-	},
-	mutations: {
-	},
-	actions: {
+		version: '1.0.0',
 	},
 	modules: {
-	}
+		language,
+	},
 })

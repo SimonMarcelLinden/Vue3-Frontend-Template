@@ -5,11 +5,13 @@ import store from '@/store';
 import RouterLanguageView from "@/components/routerView/router-view.component.vue";
 import HomeView from '@/views/home.view.vue'
 
+const lang = localStorage.getItem('language') || 'en';
+
 const routes: Array<RouteRecordRaw> = [
 	{
 		path: '/:lang',
 		component: RouterLanguageView,
-		redirect: "/en/home",
+		redirect: `/${lang}`,
 		children: [
 			{
 				path: "home",
@@ -31,7 +33,7 @@ const routes: Array<RouteRecordRaw> = [
 	},
 	{
 		path: "/:catchAll(.*)",
-		redirect: "/en/home"
+		redirect: `/${lang}`,
 	}
 ]
 
